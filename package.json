@@ -1,14 +1,28 @@
 {
   "name": "web-react-js",
+  "description": "Web chat using reactjs and nodejs",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "homepage": "",
+  "author": {
+    "name": "Edixon Piña",
+    "email": "edixonalbertto@gmail.com",
+    "url": "https://www.edixonalberto.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdixonAlberto/web-chat-js.git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "socket.io": "2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": "12.13.0",
+    "yarn": "1.19.1"
   }
 }
