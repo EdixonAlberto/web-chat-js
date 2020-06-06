@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5em;
+}
+
+.DiscussionReplyForm:hover {
+  background: #db9410;
+}
+
+.submit {
+  background: orange;
+  border: none;
+  border-bottom: 5px solid #b6801b;
+  border-radius: 0.3em;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 1em;
+  text-transform: uppercase;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+.messages-list {
+  height: calc(100vh - 174px);
+  overflow: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.input-message {
+  /* position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  /* margin-top: 10%; */
+}

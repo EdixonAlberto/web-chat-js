@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import Content from './Content';
+import InputMessage from './InputMessage';
+import { saveMessage } from '../store';
+import socket from '../socket';
 
-export const Component = (props) => {
-  return <div>{props.text}</div>;
+const Chat = ({ saveMessage }) => {
+  useEffect(() => {
+    function listeningMessages() {
+      socket.on('message', (message) => {
+        saveMessage(message);
+      });
+    }
+
+    listeningMessages();
+  });
+
+  return (
+    <div className="container">
+      <Content />
+      <InputMessage />
+    </div>
+  );
 };
 
-export default Component;
+const mapDispatchToProps = { saveMessage };
+
+export default connect(null, mapDispatchToProps)(Chat);
