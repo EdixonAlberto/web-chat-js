@@ -1,4 +1,5 @@
 const Server = require('./Server');
+require('../config');
 
 async function main() {
   const server = new Server({

@@ -1,5 +1,5 @@
 {
-  "name": "web-react-js",
+  "name": "web-chat-js",
   "description": "Web chat using reactjs and nodejs",
   "version": "0.1.0",
   "private": true,
@@ -15,7 +15,9 @@
     "url": "https://github.com/EdixonAlberto/web-chat-js.git"
   },
   "scripts": {
-    "dev": "concurrently \"yarn run start\" \"node ./src/server\"",
+    "server": "nodemon -e js -w ./src/server --exec \"node ./src/server\"",
+    "dev": "concurrently \"yarn run start\" \"yarn run server\"",
+    "prod": "yarn run build && node ./src/server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -31,10 +33,12 @@
     "react-dom": "^16.13.1",
     "react-redux": "7.2.0",
     "react-scripts": "3.4.1",
-    "socket.io": "2.3.0"
+    "socket.io": "2.3.0",
+    "uuid": "8.1.0"
   },
   "devDependencies": {
-    "concurrently": "5.2.0"
+    "concurrently": "5.2.0",
+    "nodemon": "2.0.4"
   },
   "eslintConfig": {
     "extends": "react-app"

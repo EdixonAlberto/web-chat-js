@@ -5,9 +5,17 @@
 
 Web chat using reactjs and nodejs
 
-### statep
+### Statup
 
 ```bash
 yarn install
-yarn start
+yarn run dev
+```
+
+### Commands Extras
+
+```sh
+yarn run start # to run app with react
+yarn run server # to run server http and socket
+yarn run prod # to deploy
 ```
