@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 import * as serviceWorker from './serviceWorker';
+import App from './App';
+import messageSlice from './store';
+import './config';
+
+/* ASSETS */
+import './assets/index.css';
+import './assets/css/main.css';
+
+const store = configureStore({
+  reducer: messageSlice
+});
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
