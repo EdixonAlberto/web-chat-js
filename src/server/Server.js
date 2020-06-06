@@ -1,7 +1,7 @@
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
-const { join } = require('path');
+const { resolve } = require('path');
 const socketRoutes = require('./socket.routes');
 
 class Server {
@@ -15,14 +15,19 @@ class Server {
   }
 
   middleware() {
-    if (process.env.NODE_ENV === 'production') {
+    if (!global.config.modeDev) {
       this.app.use(
-        express.static(join(__dirname, 'build'), {
-          extensions: 'html',
+        express.static(resolve('build'), {
+          extensions: '.html',
           redirect: true
         })
       );
     }
+
+    this.app.use('/', (req, res) => {
+      res.render(resolve(__dirname, 'build'));
+    });
+
     // TODO: agregar cors
   }
 
@@ -39,7 +44,7 @@ class Server {
     // TODO: agregar estos valores, por medio de environment
     // io.set('origin', '*:*');
 
-    io.on('connection', socketRoutes);
+    socketRoutes(io);
     console.log('>> Socket OK');
   }
 
