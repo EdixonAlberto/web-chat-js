@@ -1,6 +1,13 @@
-import express from 'express';
-import moduleName from '';
+const Server = require('./Server');
 
-const app = express();
+async function main() {
+  const server = new Server({
+    pathSocket: '/ws',
+    httpPort: 5000
+  });
 
-app.use(express.stat);
+  server.httpStart();
+  server.socketStart();
+}
+
+main();
