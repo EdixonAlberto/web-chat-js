@@ -19,3 +19,7 @@ yarn run start # to run app with react
 yarn run server # to run server http and socket
 yarn run prod # to deploy
 ```
+
+### Demo
+
+[Go to web chat](https://web-chat-reactjs.herokuapp.com/) &#x279c;

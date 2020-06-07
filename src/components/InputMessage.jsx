@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { sendMessage } from '../store';
 
-const InputMessage = ({ sendMessage }) => {
+const InputMessage = ({ sendMessage, user }) => {
   const [message, setMessage] = useState('');
 
   const submit = (e) => {
     if (e) e.preventDefault();
 
-    sendMessage(message);
+    sendMessage({
+      emiter: user.name,
+      text: message
+    });
     setMessage('');
   };
 
@@ -27,7 +30,7 @@ const InputMessage = ({ sendMessage }) => {
 
   const handlerKeyUp = (e) => {
     if (keyEnter(e)) {
-      const button = document.getElementsByClassName('btn')[0];
+      const button = document.getElementById('btn-in-message');
       button.click();
     }
   };
@@ -37,7 +40,7 @@ const InputMessage = ({ sendMessage }) => {
   document.addEventListener('keydown', handlerKeyDown, true);
 
   return (
-    <div className="input-message">
+    <div className="form-input-message">
       <form className="form-group py-4" autoComplete="off" onSubmit={submit}>
         <div className="row">
           <div className="col-1"></div>
@@ -57,7 +60,12 @@ const InputMessage = ({ sendMessage }) => {
           </div>
 
           <div className="button col-1 text-right">
-            <button className="btn btn-primary w-full h-100" type="submit" value="send">
+            <button
+              id="btn-in-message"
+              className="btn btn-primary w-full h-100"
+              type="submit"
+              value="send"
+            >
               Enviar
             </button>
           </div>
@@ -67,6 +75,10 @@ const InputMessage = ({ sendMessage }) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
 const mapDispatchToProps = { sendMessage };
 
-export default connect(null, mapDispatchToProps)(InputMessage);
+export default connect(mapStateToProps, mapDispatchToProps)(InputMessage);

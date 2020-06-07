@@ -22,7 +22,7 @@ const Content = ({ messagesList, user }) => {
             <Message
               key={message.id}
               text={message.text}
-              user={user.name}
+              user={message.emiter || 'User'}
               date={message.date}
             />
           ))}

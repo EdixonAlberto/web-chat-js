@@ -1,15 +1,17 @@
-.form {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.5em;
-}
-
 .form-login {
   padding: 20% 30%;
+}
+
+.form-login label,
+.form-login input,
+.form-login button {
+  font-size: 20px;
+}
+
+.form-input-message label,
+.form-input-message textarea,
+.form-input-message button {
+  font-size: 20px;
 }
 
 .form-login form {
@@ -37,7 +39,7 @@
 }
 
 .messages-list {
-  height: calc(100vh - 174px);
+  height: calc(100vh - 190px);
   overflow: hidden;
   overflow-y: scroll;
   position: relative;
@@ -45,9 +47,6 @@
   border: 1px solid #007bff;
   border-right: none;
   border-radius: 10px;
-}
-
-.input-message {
 }
 
 .text-area textarea {

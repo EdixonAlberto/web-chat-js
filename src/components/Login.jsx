@@ -16,17 +16,17 @@ const Login = ({ setSession, addUser }) => {
 
   return (
     <div className="form-login">
-      <form onSubmit={submit}>
+      <form autoComplete="off" onSubmit={submit}>
         <div className="form-group">
           <label className="">Escribe tu Nombre</label>
           <input
+            className="form-control text-center"
             type="text"
             name="name"
-            className="form-control text-center"
-            id="inputName"
             onChange={change}
             value={name}
-            aria-describedby="emailHelp"
+            autoFocus
+            required
           />
         </div>
 
@@ -38,10 +38,8 @@ const Login = ({ setSession, addUser }) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
-
 const mapDispatchToProps = {
   addUser
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

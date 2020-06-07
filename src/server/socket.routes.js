@@ -7,18 +7,13 @@ module.exports = async (io) => {
   io.on('connection', (socket) => {
     console.log('new user connected', socket.id);
 
-    io.emit('message', {
-      id: 'BOT',
-      text: 'Nuevo Usuario Conectado',
-      date: getDate()
-    });
-
     socket.on('newMessage', (message) => {
       if (global.config.modeDev) console.log(message);
       // TODO: usar flat socket.broadcast.emit
       io.emit('message', {
         id: uuid.v4().slice(0, 8),
-        text: message,
+        emiter: message.emiter,
+        text: message.text,
         date: getDate()
       });
     });

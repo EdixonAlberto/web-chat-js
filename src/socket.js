@@ -1,6 +1,8 @@
 const io = require('socket.io-client');
 
-const socket = io('ws://localhost:5000/', {
+const uri = process.env.NODE_ENV !== 'production' ? 'ws://localhost:5000/' : '';
+
+const socket = io(uri, {
   path: '/ws'
 });
 

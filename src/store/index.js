@@ -1,5 +1,5 @@
 import { createSlice, combineReducers } from '@reduxjs/toolkit';
-// import data from '../assets/data.json'; // data of test
+// import data from './data.json'; // data of test
 import socket from '../socket';
 
 const userSlice = createSlice({
