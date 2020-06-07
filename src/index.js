@@ -8,7 +8,6 @@ import messageSlice from './store';
 import './config';
 
 /* ASSETS */
-import './assets/index.css';
 import './assets/css/main.css';
 
 const store = configureStore({

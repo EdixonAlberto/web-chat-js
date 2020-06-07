@@ -17,7 +17,7 @@
   "scripts": {
     "server": "nodemon -e js -w ./src/server --exec \"node ./src/server\"",
     "dev": "concurrently \"yarn run start\" \"yarn run server\"",
-    "prod": "yarn run build && node ./src/server",
+    "prod": "node -r ./src/server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -29,6 +29,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "express": "^4.17.1",
+    "moment": "2.26.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "7.2.0",

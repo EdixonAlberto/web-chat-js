@@ -15,17 +15,15 @@ class Server {
   }
 
   middleware() {
-    if (!global.config.modeDev) {
-      this.app.use(
-        express.static(resolve('build'), {
-          extensions: '.html',
-          redirect: true
-        })
-      );
-    }
+    this.app.use(
+      express.static(resolve('build'), {
+        extensions: '.html',
+        redirect: true
+      })
+    );
 
     this.app.use('/', (req, res) => {
-      res.render(resolve(__dirname, 'build'));
+      res.send(resolve(__dirname, 'build'));
     });
 
     // TODO: agregar cors
@@ -50,7 +48,7 @@ class Server {
 
   httpStart() {
     try {
-      this.server.listen(this.config.httpPort);
+      this.server.listen(process.env.PORT || this.config.httpPort);
       console.log('>> Server OK');
     } catch (error) {
       console.error('!! Server ERROR:', error);
