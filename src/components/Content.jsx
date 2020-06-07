@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Message from './Message';
 import { connect } from 'react-redux';
 
-const Content = ({ messagesList }) => {
+const Content = ({ messagesList, user }) => {
   useEffect(() => {
     function scrollBottom() {
       const messagesList = document.getElementsByClassName('messages-list')[0];
@@ -13,13 +13,18 @@ const Content = ({ messagesList }) => {
   });
 
   return (
-    <div className="mt-5">
+    <div className="content mt-5">
       <div className="row">
         <div className="col-1"></div>
 
         <div className="messages-list col-10">
           {messagesList.map((message) => (
-            <Message key={message.id} text={message.text} user={'pepe'} date={0} />
+            <Message
+              key={message.id}
+              text={message.text}
+              user={user.name}
+              date={message.date}
+            />
           ))}
         </div>
 
@@ -32,7 +37,8 @@ const Content = ({ messagesList }) => {
 const mapStateToProps = (state) => {
   // console.log(state);
   return {
-    messagesList: state
+    messagesList: state.message,
+    user: state.user
   };
 };
 

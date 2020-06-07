@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chat from './components/Chat';
+import Login from './components/Login';
 
-function App() {
-  return (
-    <div>
-      <Chat />
-    </div>
-  );
-}
+const App = () => {
+  const [session, setSession] = useState(false);
+
+  return <div>{session ? <Chat /> : <Login setSession={setSession} />}</div>;
+};
 
 export default App;

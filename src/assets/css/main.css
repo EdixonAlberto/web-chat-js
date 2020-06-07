@@ -8,14 +8,21 @@
   padding: 0.5em;
 }
 
-.DiscussionReplyForm:hover {
-  background: #db9410;
+.form-login {
+  padding: 20% 30%;
+}
+
+.form-login form {
+  padding: 35px;
+  border: 1px solid #007bff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 
 .submit {
   background: orange;
   border: none;
-  border-bottom: 5px solid #b6801b;
   border-radius: 0.3em;
   color: white;
   cursor: pointer;
@@ -24,7 +31,9 @@
   padding: 0 1em;
   text-transform: uppercase;
   outline: 0;
-  -webkit-appearance: none;
+}
+
+.content {
 }
 
 .messages-list {
@@ -32,13 +41,88 @@
   overflow: hidden;
   overflow-y: scroll;
   position: relative;
+
+  border: 1px solid #007bff;
+  border-right: none;
+  border-radius: 10px;
 }
 
 .input-message {
-  /* position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; */
-  /* margin-top: 10%; */
+}
+
+.text-area textarea {
+  resize: none;
+}
+
+.text-area,
+.button {
+  padding: 0;
+}
+
+.Discussion a {
+  color: #0690cf;
+}
+
+.Discussion-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Discussion-text {
+  margin-left: 53px;
+}
+
+.Discussion-text a {
+  color: #0a8ecd;
+}
+
+.Discussion-date {
+  margin-left: 5px;
+}
+
+.Discussion-date {
+  font-size: 15px;
+}
+
+.Discussion-date {
+  color: #808080;
+}
+
+.DiscussionAuthor-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+
+.DiscussionAuthor-name {
+  color: #556269;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.DiscussionAuthor-name a {
+  text-decoration: none;
+}
+
+.Discussion.is-second > .Discussion-wrapper {
+  margin-left: 45px;
+}
+
+.Discussion.is-third {
+  background-repeat: no-repeat;
+  padding-top: 5px;
+}
+
+.Discussion.is-third > .Discussion-wrapper {
+  margin-left: 90px;
+}
+
+.Discussion.is-shadow > .Discussion-wrapper {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  z-index: 1;
 }

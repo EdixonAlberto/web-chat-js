@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { v4 as uuid } from 'uuid';
-
 import { sendMessage } from '../store';
 
 const InputMessage = ({ sendMessage }) => {
@@ -10,11 +8,7 @@ const InputMessage = ({ sendMessage }) => {
   const submit = (e) => {
     if (e) e.preventDefault();
 
-    sendMessage({
-      id: uuid(),
-      text: message
-    });
-
+    sendMessage(message);
     setMessage('');
   };
 
@@ -33,7 +27,8 @@ const InputMessage = ({ sendMessage }) => {
 
   const handlerKeyUp = (e) => {
     if (keyEnter(e)) {
-      submit();
+      const button = document.getElementsByClassName('btn')[0];
+      button.click();
     }
   };
 
@@ -43,11 +38,11 @@ const InputMessage = ({ sendMessage }) => {
 
   return (
     <div className="input-message">
-      <form className="form-group p-4" autoComplete="off" onSubmit={submit}>
+      <form className="form-group py-4" autoComplete="off" onSubmit={submit}>
         <div className="row">
           <div className="col-1"></div>
 
-          <div className="col-9">
+          <div className="text-area col-9">
             <textarea
               className="form-control w-full"
               name="textArea"
@@ -57,11 +52,12 @@ const InputMessage = ({ sendMessage }) => {
               onChange={change}
               onKeyUp={handlerKeyUp}
               placeholder="Escribe tu mensaje aquí"
+              required
             ></textarea>
           </div>
 
-          <div className="col-2">
-            <button className="btn btn-primary w-auto h-100" type="submit" value="send">
+          <div className="button col-1 text-right">
+            <button className="btn btn-primary w-full h-100" type="submit" value="send">
               Enviar
             </button>
           </div>

@@ -1,9 +1,6 @@
 import React from 'react';
 
 const Message = (props) => {
-  const date = props.date;
-  const replyForm = '';
-
   const imgPath = require('../assets/logo.svg');
 
   return (
@@ -24,28 +21,14 @@ const Message = (props) => {
                 </a>
               </span>
             </div>
-            <div className="">
-              <span className="Discussion-date">{date}</span>
+
+            <div>
+              <span className="Discussion-date">{props.date}</span>
             </div>
           </div>
 
-          <div className="Discussion-text">{props.text} </div>
-
-          <div className="Discussion-bottom">
-            <div className="Discussion-bottomLeft">
-              <span>
-                <span className="Discussion-vote Discussion-voteUp icon-plus_A "></span>
-
-                <span className="Discussion-vote Discussion-voteDown icon-minus_A "></span>
-
-                <span className="Discussion-points">points</span>
-              </span>
-            </div>
-            <div className="Discussion-bottomRight"></div>
-          </div>
+          <div className="Discussion-text">{props.text}</div>
         </div>
-
-        <div className="Discussion-editor">{replyForm}</div>
       </div>
     </div>
   );
